@@ -1,11 +1,9 @@
-$fn=40;
-
 DIAMETER_IN = 61;
 THICKNESS = 1.2;
 SUPPORT_SIZE = 70;
 
 M_DISTANCE = 72;
-M_DIAMETER = 9;
+M_DIAMETER = 7;
 
 RADIUS_IN = DIAMETER_IN / 2;
 M_RADIUS = M_DIAMETER / 2;
@@ -22,7 +20,7 @@ module shearedCylinder(shearingX=0, shearingY=0) {
         difference() {
             cylinder(r=RADIUS_IN + THICKNESS, h=40, center=false);
             translate([0, 0, -1])
-            cylinder(r=RADIUS_IN, h=28.5, center=false);
+            cylinder(r=RADIUS_IN, h=19, center=false);
         }
     }
 }
@@ -30,11 +28,11 @@ module shearedCylinder(shearingX=0, shearingY=0) {
 module main() {
     difference() {
         translate([0, 0, THICKNESS])
-        shearedCylinder(1.8);
+        shearedCylinder(2);
         translate([SUPPORT_SIZE/2, -SUPPORT_SIZE/2, 0])
         cube([SUPPORT_SIZE*2, SUPPORT_SIZE, 50], center=false);
         
-        translate([-SUPPORT_SIZE/2, -SUPPORT_SIZE/2, 30])
+        translate([-SUPPORT_SIZE/2, -SUPPORT_SIZE/2, 20])
         cube([SUPPORT_SIZE*2, SUPPORT_SIZE*2, SUPPORT_SIZE], center=false);
     }
 }
